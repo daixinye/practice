@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.1 导航组件</title>
+	<style type="text/css">
+		/*添加视觉样式*/
+		.multi_drop_menu{
+			font-size: 1em;
+		}
+		.multi_drop_menu a{
+			/*让链接充满列表项*/
+			display:block;
+			padding:.2em 1em;
+			border:1px solid transparent;
+			color:#555;
+			background-color:#eee;
+		}
+		.multi_drop_menu a:hover{
+			color:#ccc;
+			background-color:#aaa;
+		}
+		.multi_drop_menu a:active{
+			background:#fff;
+			color:#ccc;
+		}
+
+		/*添加功能样式*/
+		.multi_drop_menu *{
+			margin:0;
+			padding:0;
+		}
+		.multi_drop_menu ul{
+			float:left;
+		}
+		.multi_drop_menu li{
+			float:left;
+			/*为子元素提供定位上下文*/
+			position:relative;
+			list-style-type:none;
+		}
+		.multi_drop_menu li a{
+			display:block;
+			text-decoration: none;
+			border-right-style: solid;
+			/*背景只出现在内边距区域后面*/
+			background-clip:padding-box;
+		}
+		.multi_drop_menu li:last-child a {
+			border-right-style: none;
+		}
+
+		/*隐藏二级菜单*/
+		.multi_drop_menu li ul {
+			width:9em;
+		}
+		.multi_drop_menu li ul li {
+			width:100%;
+		}
+		.multi_drop_menu li li a{
+			border-right-style: none;
+			border-top-style: solid;
+		}
+		.multi_drop_menu li ul{
+			display:none;
+			position:absolute;
+			left:0;
+			top:100%;
+		}
+		.multi_drop_menu li:hover > ul{
+			display:block;
+		}
+
+		/*三级菜单*/
+		.multi_drop_menu li li ul{
+			display:none;
+			postion:absolute;
+			left:100%;
+			top:0;
+		}
+
+		/*选择路径*/
+		.multi_drop_menu li:hover > a {
+			color:#ccc;
+			background-color:#aaa;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 三级菜单 -->
+	<nav class="multi_drop_menu">
+		<ul>
+			<li><a href="#">Power</a></li>
+			<li><a href="#">Money</a></li>
+			<li><a href="#">Love</a></li>
+			<li><a href="#">Fame</a>
+				<ul>
+					<li><a href="#">Sports Star</a></li>
+					<li><a href="#">Movie Star</a></li>
+					<li><a href="#">Rock Star</a>
+						<ul>
+							<li><a href="#">Bruce Springs</a></li>
+							<li><a href="#">Bono</a></li>
+							<li><a href="#">Mick Jagger</a></li>
+							<li><a href="#">Bob Dylan</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>
