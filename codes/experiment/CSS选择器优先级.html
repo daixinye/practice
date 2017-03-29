@@ -1,0 +1,23 @@
+<DOCTYPE html>
+<html>
+<head>
+	<title>CSS选择器优先级</title>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<section>
+		<h1>CSS选择器的优先级</h1>
+		<p>标签选择器 &lt; 类选择器=伪类 &lt; ID选择器 &lt; 内联样式</p>
+		<p>其中，标签选择器的权重为1，类选择器的权重为10，ID选择器的权重为100，内联样式的权重为1000，组合选择器中可根据这些权重和的大小来确定最终的样式</p> 
+	</section>
+	<section>
+		<h1>Q&amp;A</h1>
+		<ul>
+			<li>
+				<h2>!important 与 内联样式的比较？</h2>
+				<p>标签选择器 &lt; 类选择器=伪类 &lt; ID选择器 &lt; 内联样式 &lt; 带!important的标签选择器 &lt; 带!important的类选择器=伪类 &lt; 带!important的ID选择器 &lt; 带!important的内联样式</p>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>
