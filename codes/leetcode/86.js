@@ -11,6 +11,7 @@
  * @return {ListNode}
  */
 var partition = function(head, x) {
+	//解一：这个解法没有用到新的节点空间，但是会修改原链表，beats 21%
     var leftHead,
 		rightHead,
 		leftIterator,
@@ -21,7 +22,7 @@ var partition = function(head, x) {
 	leftHead = null;
 	rightHead = null;
 	
-	while(iterator!=null){
+	while(iterator!==null){
 		var val = iterator.val;
 		var next = iterator.next;
 		if(val<x){
@@ -44,7 +45,10 @@ var partition = function(head, x) {
 		iterator = iterator.next;
 	}
 	
-	if(leftHead==null){
+	//防止出现循环链表
+	rightIterator?rightIterator.next = null:null;
+	
+	if(leftHead===null){
 		return rightHead;
 	}else{
 		leftIterator.next = rightHead;
@@ -77,14 +81,14 @@ function makeListNode(arr){
 	return head;
 }
 
-//测试
-console.log(partition(makeListNode([1,4,3,2,5,2]), 0))
-console.log(partition(makeListNode([1,4,3,2,5,2]), 3))
-console.log(partition(makeListNode([1,4,3,2,5,2]), 6))
-console.log(partition(makeListNode([]), 0))
-console.log(partition(makeListNode([]), 3))
-console.log(partition(makeListNode([]), 6))
-console.log(partition(null, 0))
-console.log(partition(null, 3))
-console.log(partition(null, 6))
+
+//单元测试
+function test(arr=[],x=0){
+	console.log(partition(makeListNode(arr), x));
+}
+test([1,4,3,2,5,2],3);
+test([],0);
+test([2,3,4],1);
+test([2,3,4],5);
+
 
