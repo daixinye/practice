@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>semantic web</title>
+	</head>
+	<body>
+		<h1>Semantic Web</h1>
+		<section>
+			<h2>表单语义化</h2>
+			<h3>label标签</h3>
+			<div>
+				<!-- 两种写法是等价的，但是用label包起来结构更加清晰 -->
+				<input type="radio" id="radio1" />
+				<label for="radio1">单选框</label>
+				
+				<label for="radio3"><input type="radio" id="radio3"/>单选框</label>
+			</div>
+
+			<h3>fieldset标签和legend标签</h3>
+			<form action="###" method="post">
+				<fieldset>
+					<legend>登录</legend>
+					<p>
+						<label for="name">账号：<input type="text" id="name" name="name" /></label>
+					</p>
+					<p>
+						<label for="pwd">密码：<input type="password" id="pwd" name="pwd" /></label>
+					</p>
+					<label for="remember-me"><input type="radio" name="remember-me" id="remember-me">记住我</label>
+					<input type="submit" value="提交" />
+				</fieldset>
+			</form>
+		</section>
+
+		<section>
+			<h2>其他语义化</h2>
+			<h3>br标签</h3>
+			<p>W3C标准规定<br />br标签只适用于 <br />p标签内的换行</p>
+
+			<h3></h3>
+		</section>
+	</body>
+</html>
