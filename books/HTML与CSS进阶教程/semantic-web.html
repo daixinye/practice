@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>semantic web</title>
+    <style>
+    li {
+        list-style-type: none;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Semantic Web</h1>
+    <section>
+        <h2>图片语义化</h2>
+        <!-- figure标签用于包含图片和图注，figcaption用于表示图注文字 -->
+        <figure>
+            <!-- 注意src，alt是必需的，title可选 -->
+            <img src="###" alt="这是描述给搜索引擎看的" title="这是给用户看的" />
+            <figcaption>图片语义化</figcaption>
+        </figure>
+    </section>
+    <section>
+        <h2>表格语义化</h2>
+        <!-- 注意thead,tbody,tfoot的运用 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>表头单元格1</th>
+                    <th>表头单元格2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>标准单元格1</td>
+                    <td>标准单元格2</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>表尾单元格1</td>
+                    <td>表尾单元格2</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+    <section>
+        <h2>表单语义化</h2>
+        <h3>label标签</h3>
+        <div>
+            <!-- 两种写法是等价的，但是用label包起来结构更加清晰 -->
+            <input type="radio" id="radio1" />
+            <label for="radio1">单选框</label>
+            <label for="radio3">
+                <input type="radio" id="radio3" />单选框</label>
+        </div>
+        <h3>fieldset标签和legend标签</h3>
+        <form action="###" method="post">
+            <fieldset>
+                <legend>登录</legend>
+                <p>
+                    <label for="name">账号：
+                        <input type="text" id="name" name="name" />
+                    </label>
+                </p>
+                <p>
+                    <label for="pwd">密码：
+                        <input type="password" id="pwd" name="pwd" />
+                    </label>
+                </p>
+                <label for="remember-me">
+                    <input type="radio" name="remember-me" id="remember-me">记住我</label>
+                <input type="submit" value="提交" />
+            </fieldset>
+        </form>
+    </section>
+    <section>
+        <h2>其他语义化</h2>
+        <h3>br标签</h3>
+        <p>
+            W3C标准规定<br />
+            br标签只适用于<br />
+            p标签内的换行
+        </p>
+        
+        <!-- 对于列表型的数据，建议使用无序列表而不是用div -->
+        <h3>无序列表ul</h3>
+        <ul>
+            <li><span>1 </span>HTML</li>
+            <li><span>2 </span>CSS</li>
+            <li><span>3 </span>JavaScript</li>
+        </ul>
+
+        <h3>strong标签和em标签</h3>
+        <p>在一个页面中，为了SEO而突出某些关键字，可以用<strong>strong</strong>或<em>em</em>标签。</p>
+
+        <h3>del标签和ins标签</h3>
+        <p>del标签用于定义<del>被删除的文本</del>，而ins标签用于定义被<ins>更新的文本</ins></p>
+    </section>
+</body>
+
+</html>
