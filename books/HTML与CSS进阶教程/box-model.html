@@ -23,6 +23,7 @@
     .border-zero {
         border: 0;
     }
+    /*垂直外边距重叠*/
     
     .have-margin {
         border: 1px solid red;
@@ -53,6 +54,86 @@
     
     .father-have-border {
         border: 1px dashed red;
+    }
+    /*负外边距*/
+    
+    .negative-margin {
+        margin-bottom: -25px;
+    }
+    
+    .overflow-hidden {
+        overflow: hidden;
+    }
+    
+    hr {
+        margin: 0;
+        padding: 0;
+    }
+    /*二栏流动布局*/
+    
+    .fluid {
+        background: red;
+        height: 200px;
+        float: left;
+        margin-right: -200px;
+        width: 100%;
+    }
+    
+    .fluid > div {
+        padding-right: 200px;
+    }
+    
+    .fixed {
+        background: yellow;
+        float: right;
+        height: 200px;
+        width: 200px;
+    }
+    /*三栏流动布局*/
+    
+    .fluid-mid {
+        background: red;
+        float: left;
+        height: 200px;
+        margin: 0 -200px;
+        width: 100%;
+    }
+    
+    .fluid-mid > div {
+        padding: 0 200px;
+    }
+    
+    .fixed-left,
+    .fixed-right {
+        background: yellow;
+        height: 200px;
+        position: relative;
+        width: 200px;
+    }
+    
+    .fixed-left {
+        float: left;
+    }
+    
+    .fixed-right {
+        float: right;
+    }
+    /*块元素居中*/
+    .block-center-wrapper {
+    	background: red;
+    	height: 200px;
+    	position: relative;
+    	width: 100%;
+    }
+    .block-center{
+    	background: yellow;
+    	height: 100px;
+    	left:50%;
+    	margin-left:-50px;
+    	margin-top:-50px;
+    	position: absolute;
+    	top:50%;
+    	width: 100px; 
     }
     </style>
 </head>
@@ -104,6 +185,61 @@
             <div class="father father-have-border">
                 <div class="son">
                     如果父元素有边框的话，外边距就不会叠加
+                </div>
+            </div>
+        </section>
+    </section>
+    <section style="padding-bottom: 50px;">
+        <h2>负外边距</h2>
+        <p>负外边距实际上是把盒子实际所占的空间变小了，使得下面的元素可以往上移动。可以看到水平线由于负外边距把内边距和边框所占的空间都抵消了，所以向上移动了25px</p>
+        <div class="box-model negative-margin">
+            <p>This is the content of box</p>
+        </div>
+        <hr />
+        <p style="margin-top: 50px">尽管盒子变小了，但是如果给盒子加上overflow:hidden，超出盒子(水平线以下)的部分并不会被隐藏掉</p>
+        <div class="box-model negative-margin overflow-hidden">
+            <p>This is the content of box</p>
+        </div>
+        <hr />
+    </section>
+    <section>
+        <h2>负外边距的应用</h2>
+        <section>
+            <h3>图片与文字对齐</h3>
+            <p>由于图片是inline-block与文字对齐是与baseline对齐，故可以用负外边距来调整图片的位置</p>
+        </section>
+        <section>
+            <h3>自适应布局</h3>
+            <p>自适应布局的要点在于用父容器负外边距给固定栏留出空间，再用子容器的padding把显示的内容从视觉上限制回来，是非常有意思的技巧。需要注意要给最外层的容器套一个overflow:hidden来清除float</p>
+            <div class="overflow-hidden">
+                <div class="fluid">
+                    <div>
+                        这里是流动的，会随着浏览器的可视宽度而变大变小
+                    </div>
+                </div>
+                <div class="fixed">
+                    这里是固定的
+                </div>
+            </div>
+            <p>三栏中栏流动布局，需要注意position:relative的作用</p>
+            <div class="overflow-hidden">
+                <div class="fixed-left">
+                    固定的左栏
+                </div>
+                <div class="fluid-mid">
+                    <div>
+                        流动的中栏
+                    </div>
+                </div>
+                <div class="fixed-right">
+                    固定的右栏
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>块元素居中</h3>
+            <div class="block-center-wrapper">
+                <div class="block-center">
                 </div>
             </div>
         </section>
