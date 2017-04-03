@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>box model</title>
+    <style type="text/css">
+    .box-model {
+        background-color: #fce9b9;
+        border: 5px solid red;
+        padding: 20px;
+        margin: 40px;
+    }
+    
+    .box-model p {
+        border: 1px solid red;
+    }
+    
+    .border-none {
+        border: none;
+    }
+    
+    .border-zero {
+        border: 0;
+    }
+    
+    .have-margin {
+        border: 1px solid red;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+    }
+    
+    .wrapper {
+        border: 1px dashed red;
+    }
+    
+    .father {
+        margin: 20px 0;
+    }
+    
+    .son {
+        border: 1px solid red;
+        margin: 10px 0;
+    }
+    
+    .father-have-padding {
+        padding: 10px 0;
+    }
+    
+    .father-have-border {
+        border: 1px dashed red;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>盒模型</h1>
+    <div class="box-model">
+        <p>This is the content of the box.</p>
+    </div>
+    <section>
+        <h2>border:none和border:0的区别</h2>
+        <div class="box-model border-none">
+            <p>
+                <mark>border:none</mark>代表的是border的样式为none，浏览器在解析border:none时不会再渲染，故border:none不占用内存。</p>
+        </div>
+        <div class="box-model border-zero">
+            <p>
+                <mark>border:0</mark>表示把border宽度定义成0，虽然在视觉上看不见，但是浏览器依然会对border进行解析和渲染，故border:0会占用内存。</p>
+        </div>
+    </section>
+    <section>
+        <h2>外边距叠加</h2>
+        <section>
+            <h3>同级元素</h3>
+            <div class="wrapper">
+                <div class="have-margin">
+                    A
+                </div>
+                <div class="have-margin">
+                    A
+                </div>
+                <div class="have-margin">
+                    A
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>父子元素</h3>
+            <div class="father">
+                <div class="son">
+                    如果父元素没有内边距或者边框的话，父元素与子元素的垂直外边距也会叠加
+                </div>
+            </div>
+            <div class="father father-have-padding">
+                <div class="son">
+                    如果父元素有内边距的话，外边距就不会叠加
+                </div>
+            </div>
+            <div class="father father-have-border">
+                <div class="son">
+                    如果父元素有边框的话，外边距就不会叠加
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>
