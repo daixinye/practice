@@ -2,10 +2,8 @@
 	"name":"babel-practice",
 	"version":"0.0.1",
 	"private":true,
-	"dependencies":{
-		"babel-cli":"^6.24.x"
-	},
 	"devDependencies":{
+		"babel-cli":"^6.24.x",
 		"babel-preset-es2015":"^6.24.x"
 	},
 	"scripts":{
