@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Hello World</title>
+</head>
+
+<body>
+    <canvas id="canvasOne" width="500" height="300">
+        Your browser does not support HTML5 Canvas.
+    </canvas>
+</body>
+<script type="text/javascript">
+window.addEventListener('load', eventWindowLoaded, false);
+
+//用于检测浏览器是否支持canvas的函数
+function canvasSupport() {
+    return !!document.createElement('canvas').getContext('2d');
+}
+
+function Debugger() {};
+Debugger.log = function(message) {
+    try {
+        console.log(message);
+    } catch (e) {
+        return;
+    }
+}
+
+function eventWindowLoaded() {
+    if (!canvasSupport()) {
+        return;
+    }
+
+    var theCanvas = document.getElementById('canvasOne');
+    var context = theCanvas.getContext('2d');
+
+    var alpha = 1;
+    var fadein = alpha < 1 ? true : false;
+    var interval = 50;
+    var step = 0.01;
+
+    function canvasApp() {
+
+        function drawScreen() {
+            //重置
+            context.globalAlpha = 1;
+
+            //背景
+            context.fillStyle = "#ff0";
+            context.fillRect(0, 0, 500, 300);
+
+            //边框
+            context.strokeStyle = "#000";
+            context.strokeRect(5, 5, 490, 290);
+
+            context.globalAlpha = getAlpah();
+            //文字
+            context.fillStyle = "#000";
+            context.font = '20px Sans-Serif';
+            context.textBaseline = "top";
+            context.fillText('Hello World', 195, 80);
+
+        }
+
+        function loop() {
+            window.setTimeout(loop, interval);
+            drawScreen();
+        }
+
+        function getAlpah() {
+            fadein ? alpha += step : alpha -= step;
+
+            if (alpha <= 0.2 || alpha >= 1) {
+                fadein = !fadein;
+            }
+
+            return alpha;
+        }
+
+        loop();
+    }
+
+    canvasApp();
+}
+</script>
+
+</html>
