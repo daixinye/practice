@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>综合信息平台</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+</head>
+
+<body>
+    <h1 class="head">XXX 管 理 平 台</h1>
+    <div class="home">
+        <div class="menu">
+            <ul>
+                <li class="menu-head">菜 单 栏</li>
+                <li class="menu-item"><a href="#monitor">温度监测</a></li>
+                <li class="menu-item"><a href="#setting">设置参数</a></li>
+                <li class="menu-item"><a href="#history">历史记录</a></li>
+                <li class="menu-item"><a href="#manage">用户管理</a></li>
+                <ul>
+        </div>
+        <div class="content-wrapper">
+            <div class="content">
+                <section id="monitor" class="hidden">
+                    <div class="info">
+                        实时温度：<span id="">55</span> | 显示温度：
+                        <span id="">60</span>
+                    </div>
+                    <div class="button refresh-button">刷 新</div>
+                    <div id="charts"></div>
+                    <div class="button open-button">手动打开电机</div>
+                </section>
+                <section id="setting" class="hidden">
+                    <fieldset>
+                        <legend>设置参数</legend>
+                        <p>
+                            <label for="tp">设置温度：</label>
+                            <input type="number" id="tp">
+                        </p>
+                        <p>
+                            <div class="button setting-submit">
+                                保 存
+                            </div>
+                        </p>
+                    </fieldset>
+                </section>
+                <section id="history" class="hidden">
+                    <div>
+                        <p>温度历史记录</p>
+                        <hr />
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <th>时间</th>
+                                    <th>实时温度</th>
+                                    <th>设定温度</th>
+                                    <th>系统情况</th>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>正常</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <p>修改温度历史记录</p>
+                        <hr />
+                        <div class="table">
+                            <table>
+                                <tr>
+                                    <th>时间</th>
+                                    <th>原定温度</th>
+                                    <th>修改后温度</th>
+                                    <th>修改者</th>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                                <tr>
+                                    <td>5月1日 12:12</td>
+                                    <td>55</td>
+                                    <td>60</td>
+                                    <td>用户1</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <section id="manage" class="hidden">
+                    <fieldset>
+                        <legend>密码修改</legend>
+                        <p>
+                            <label for="pwd">原密码：</label>
+                            <input type="password" id="pwd">
+                        </p>
+                        <p>
+                            <label for="newPwd">新密码：</label>
+                            <input type="password" id="newPwd">
+                        </p>
+                        <p>
+                            <label for="newPwd">确认密码：</label>
+                            <input type="password" id="repeatPwd">
+                        </p>
+                        <p>
+                            <div class="button manage-submit">
+                                保 存
+                            </div>
+                        </p>
+                    </fieldset>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="src/js/echarts.min.js"></script>
+    <script>
+    $(function() {
+        function showPage() {
+            function show() {
+                var page;
+                return function(hash) {
+                    $(page).toggle('hidden');
+                    $(hash).toggle('hidden');
+                    page = hash;
+                };
+            }
+            var showSection = show();
+
+            showSection(window.location.hash ? window.location.hash : '#monitor');
+            $('.menu').on('click', '.menu-item', function(e) {
+                var hash = $(e.target).attr('href');
+                showSection(hash);
+            });
+        }
+        showPage();
+
+        function initChart() {
+            var myChart = echarts.init($('#charts')[0]);
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['温度']
+                },
+                xAxis: {
+                    data: ['5小时前', '4小时前', '3小时前', '2小时前', '1小时前']
+                },
+                yAxis: {
+
+                },
+                series: [{
+                    name: '温度',
+                    type: 'line',
+                    data: [55, 45, 65, 35, 70]
+                }]
+            };
+
+            myChart.setOption(option);
+        }
+        initChart();
+
+    });
+    </script>
+</body>
+
+</html>
