@@ -11,19 +11,19 @@ body {
     line-height: 2em;
     color: #fff;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    animation:load-head 0.75s ease-in;
-    position:relative;
+    animation: load-head 0.75s ease-in;
+    position: relative;
 }
 
-@keyframes load-head{
-	0%{
-		opacity: 0;
-		top: -2em;
-	}
-	100%{
-		opacity: 1;
-		top:0;
-	}
+@keyframes load-head {
+    0% {
+        opacity: 0;
+        top: -2em;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
 }
 
 .form {
@@ -52,7 +52,6 @@ body {
     position: relative;
 }
 
-
 .username input,
 .password input {
     margin: 0;
@@ -73,11 +72,12 @@ body {
 }
 
 .error-info {
-	color: red;
-	text-align:center;
-	font-size: 12px;
-	padding-top: 0.5em;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 0.5em;
 }
+
 .submit {
     color: #fff;
     display: block;
@@ -94,121 +94,151 @@ body {
     background-color: #5cacef;
 }
 
+
 /* home */
 
-ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.home {
-	width: 1000px;
-	height: 500px;
-	background-color: rgba(255,255,255,0.5);
-	margin: 0 auto;
-	margin-top: 6em;
-	overflow: hidden;
-}
-.hidden{
-	display: none;
-}
-.show{
-	display: block;
-}
-.menu{
-	width:200px;
-	height: 100%;
-	border-right: 1px solid #999;
-	box-sizing: border-box;
-	display:inline-block;
-}
-.menu li a {
-	text-decoration: none;
-	color:inherit;
-	display:inline-block;
-	width:100%;
-	height:100%;
-}
-.menu .menu-head {
-	font-size: 1em;
-	text-align:center;
-	line-height: 3em;
-	color: rgba(0,0,0, 0.5);
-}
-.menu .menu-item{
-	width: 100%;
-	line-height: 2.5em;
-	font-size: 1.25em;
-	text-align:center;
-	border-bottom: 1px solid #999;
-	transition:background-color 0.3s linear;
-}
-.menu .menu-item:hover {
-	cursor: pointer;
-	background-color: rgba(255,255,255,0.7);
+.time {
+    text-align: center;
+    margin: 0;
+    font-size: 1em;
+    position: relative;
+    top: 80px;
+    color: #333;
 }
 
-.content{
-	padding-left: 220px;
-	padding-right: 20px;
-	padding-top: 10px;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+.home {
+    width: 1000px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    margin-top: 6em;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.menu {
+    width: 200px;
+    height: 100%;
+    border-right: 1px solid #999;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.menu .menu-head {
+    font-size: 1em;
+    text-align: center;
+    line-height: 3em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.menu .menu-item {
+    width: 100%;
+    line-height: 2.5em;
+    font-size: 1.25em;
+    text-align: center;
+    border-bottom: 1px solid #999;
+    transition: background-color 0.3s linear;
+}
+
+.menu .menu-item:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.content {
+    padding-left: 220px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
 .content-wrapper {
-	height: 100%;
-	width: 100%;
-	margin-left: -200px;
-	float: right;
+    height: 100%;
+    width: 100%;
+    margin-left: -200px;
+    float: right;
 }
-.content label{
-	width: 100px;
-	text-align: right;
-	display:inline-block;
+
+.content label {
+    width: 100px;
+    text-align: right;
+    display: inline-block;
 }
-.info{
-	margin-top: 1em;
-	text-align:center;
+
+.info {
+    margin-top: 1em;
+    text-align: center;
 }
+
 .info span {
-	font-weight: bolder;
+    font-weight: bolder;
 }
+
 #charts {
-	width:600px;
-	height: 400px;
-	margin: 0 auto;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
 }
+
 .button {
-	color: #fff;
-	background-color: #0f88eb;
-	padding: 0 1em;
-	font-size: 12px;
-	line-height: 2;
-	border-radius: 3px;
-	text-align:center;
+    color: #fff;
+    background-color: #0f88eb;
+    padding: 0 1em;
+    font-size: 12px;
+    line-height: 2;
+    border-radius: 3px;
+    text-align: center;
 }
+
 .button:hover {
-	background-color:#5cacef;
-	cursor: pointer;
+    background-color: #5cacef;
+    cursor: pointer;
 }
 
 .refresh-button {
-	display: inline-block;
-	float:right;
+    display: inline-block;
+    float: right;
 }
-.open-button{
-	width: 200px;
-	text-align: center;
-	margin: 0 auto;
+
+.open-button {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
 }
-.setting-submit, .manage-submit{
-	width: 200px;
-	margin-left: 20px;
-	margin-top: 30px;
+
+.setting-submit,
+.manage-submit {
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 30px;
 }
+
 #history table {
-	width:100%;
-	text-align:center;
+    width: 100%;
+    text-align: center;
 }
+
 #history .table {
-	height:150px;
-	overflow: auto;
+    height: 150px;
+    overflow: auto;
 }

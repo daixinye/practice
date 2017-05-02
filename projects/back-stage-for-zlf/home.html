@@ -9,6 +9,7 @@
 
 <body>
     <h1 class="head">XXX 管 理 平 台</h1>
+    <h2 class="time">----年-月-日 --:--:--</h2>
     <div class="home">
         <div class="menu">
             <ul>
@@ -239,6 +240,23 @@
         }
         initChart();
 
+        function setTime() {
+            var time = $('.time');
+            setInterval(function() {
+                var now = new Date();
+                var t = {
+                    y: now.getFullYear(),
+                    m: now.getMonth() + 1,
+                    d: now.getDate(),
+                    h: now.getHours(),
+                    i: now.getMinutes(),
+                    s: now.getSeconds()
+                }
+                time.text(t.y + '年' + t.m + '月' + t.d + '日 ' + t.h + ':' + t.i + ':' + t.s);
+            }, 1000);
+        }
+
+        setTime();
     });
     </script>
 </body>
