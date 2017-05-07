@@ -24,9 +24,9 @@ window.onload = function() {
         // 灰度算法 默认为 (R+G+B)/3
         function computeGrayscale(r, g, b, divisor_r, divisor_g, divisor_b) {
 
-            !divisor_r ? divisor_r = 3 : null;
-            !divisor_b ? divisor_b = 3 : null;
-            !divisor_g ? divisor_g = 3 : null;
+            divisor_r = divisor_r || 3;
+            divisor_b = divisor_b || 3;
+            divisor_g = divisor_g || 3;
 
             return parseInt(r / divisor_r + g / divisor_g + b / divisor_b);
         }
