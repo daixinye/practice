@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    body {
+        margin: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="500" width="500"></canvas>
+</body>
+<script>
+window.onload = function() {
+    var canvas = document.querySelector('#canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 灰度化
+    function grayscale(ctx, imageURL, x, y, width, height) {
+        // 灰度算法 默认为 (R+G+B)/3
+        function computeGrayscale(r, g, b, divisor_r, divisor_g, divisor_b) {
+
+            !divisor_r ? divisor_r = 3 : null;
+            !divisor_b ? divisor_b = 3 : null;
+            !divisor_g ? divisor_g = 3 : null;
+
+            return parseInt(r / divisor_r + g / divisor_g + b / divisor_b);
+        }
+
+        var image = new Image();
+        image.src = imageURL;
+
+        image.onload = function() {
+            ctx.strokeRect(x, y, width, height);
+            ctx.drawImage(image, x, y, width, height);
+
+            var imageData = ctx.getImageData(x, y, width, height);
+
+            for (var i = 0; i < imageData.data.length / 4; i++) {
+                var index = i * 4;
+                var r = imageData.data[index],
+                    g = imageData.data[index + 1],
+                    b = imageData.data[index + 2];
+
+                var gray = computeGrayscale(r, g, b);
+
+                imageData.data[index] = gray;
+                imageData.data[index + 1] = gray;
+                imageData.data[index + 2] = gray;
+            }
+
+            ctx.putImageData(imageData, x, y);
+        }
+    }
+    grayscale(ctx, 'img.jpeg', 20, 20, 300, 300);
+}
+</script>
+
+</html>
