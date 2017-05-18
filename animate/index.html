@@ -1,0 +1,62 @@
+<html>
+<head>
+	<style>
+		div {
+			max-width: 800px;
+			border:1px solid red;
+		}
+		.a{
+			color:#f00;
+			transform: translate(-720px,0px);
+			animation: bounce 1s 1s forwards;
+			font-size: 200px;
+		}
+		.b{
+			color:#f00;
+			transform: translate(-745px,0px);
+			animation: bounce 1s 1s forwards;
+			font-size: 200px;
+		}
+		.c{
+			color:#f00;
+			transform: translate(-820px,0px);
+			animation: bounce 1s 1s forwards;
+			font-size: 200px;
+			visibility: hidden;
+
+		}
+		@keyframes bounce{
+			to {
+				transform: translate(0px,0px);
+			}
+		}
+		@keyframes bouncea{
+			to {
+				transform: translate(0px,0px);
+				margin-top: 1;
+				visibility: visible;
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="a">animate</div>
+	<div class="b">animate</div>
+	<div class="c">animate</div>
+	<div id="log"></div>
+</body>
+	<script>
+		var log = function(){
+			var el = 'c'
+			var text = document.querySelector('.'+el).offsetLeft;
+			var t = document.createElement('p');
+			t.innerHTML = text;
+			document.getElementById('log').appendChild(t);
+		}
+
+		// setInterval(log,200);
+		// setTimeout(log,1200);
+	</script>
+</html>
