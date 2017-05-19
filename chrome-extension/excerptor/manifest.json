@@ -1,0 +1,26 @@
+{
+	"manifest_version": 2,
+
+	"name": "excerptor",
+	"description": "网页摘录",
+	"version": "1.0",
+
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_title": "getting started!"
+	},
+	"permissions": [
+		"activeTab"
+	],
+	"content_scripts": [
+    	{
+    		"matches": ["*://www.baidu.com/"],
+    		"js": ["./content.js"],
+    		"run_at": "document_end",
+    		"css": ["./content.css"]
+    	}
+    ],
+    "background": {
+    	"scripts" : ["background.js"]
+    }
+}
