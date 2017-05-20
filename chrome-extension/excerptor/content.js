@@ -4,9 +4,6 @@ function sendMessage(message, callback) {
 	chrome.extension.sendMessage(message, callback);
 }
 
-var menu = new Menu();
-var note = new Note();
-
 function Menu() {
 	this.lastSelected = "";
 	var body = document.querySelector('body');
@@ -27,11 +24,12 @@ function Menu() {
 				break;
 		}
 	}.bind(this);
+
+	this.createMenu();
 }
 
 Menu.prototype.showMenu = function(x, y) {
 	var menu = this.getMenu();
-
 	menu.style.display = "block";
 	menu.style.top = y + "px";
 	menu.style.left = x + "px";
@@ -51,12 +49,10 @@ Menu.prototype.createMenu = function() {
 	menu.innerHTML = '<div id="menu-add">添加至摘录本</div>';
 
 	document.querySelector('body').appendChild(menu);
-
-	return menu;
 }
 
 Menu.prototype.getMenu = function() {
-	return document.querySelector('#menu') || this.createMenu();
+	return document.querySelector('#menu');
 }
 
 Menu.prototype.onmouseup = function(e) {
@@ -68,14 +64,37 @@ Menu.prototype.onmouseup = function(e) {
 
 function Note() {
 	this.notes = [];
+
+	this.createNote();
 }
 
-Note.prototype.createNote = function() {
+Note.prototype.createNote = function(x,y) {
+	var note  = document.createElement('div');
+	note.id = 'note';
 
+	document.querySelector('body').appendChild(note);
+}
+
+Note.prototype.getNote = function(){
+	return document.querySelector('#note');
 }
 
 Note.prototype.add = function(text) {
 	this.notes.push(text);
+	this.render();
+	window.location = "#note-bottom-anchor";
 	console.log('当前notes',this.notes);
 }
 
+Note.prototype.render = function(){
+	var html = '';
+	this.notes.forEach(function(note,index){
+		html += '<p>' + note + '</p>';
+	})
+
+	this.getNote().innerHTML = html;
+}
+
+
+var menu = new Menu();
+var note = new Note();

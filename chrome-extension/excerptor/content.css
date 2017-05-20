@@ -2,14 +2,27 @@
 	box-shadow: #666 0 0 15px;
 	padding: 5px 10px;
 	background-color: #fff;
-
 	margin: 10px;
-
 	cursor: pointer;
-
 	opacity: 0.85;
+	z-index: 9999;
 }
 
 #menu:hover {
 	opacity: 1;
+}
+
+#note {
+	box-shadow: #666 0 0 15px;
+	padding: 5px 10px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+	max-height: 500px;
+	width: 30%;
+}
+
+#note:hover {
 }
