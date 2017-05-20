@@ -14,7 +14,7 @@
 	],
 	"content_scripts": [
     	{
-    		"matches": ["*://www.baidu.com/"],
+    		"matches": ["*://*/*"],
     		"js": ["./content.js"],
     		"run_at": "document_end",
     		"css": ["./content.css"]
