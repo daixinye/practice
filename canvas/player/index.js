@@ -11,18 +11,18 @@ class app {
         this.renderCanvas()
     }
 
-    draw(c2d, timeout, v) {
+    draw(ctx, timeout, v) {
         setTimeout(() => {
             if(this.timeoutFlag) return
-            c2d.drawImage(v, 0, 0, v.width, v.height)
-            this.draw(c2d, timeout, v)
+            ctx.drawImage(v, 0, 0, v.width, v.height)
+            this.draw(ctx, timeout, v)
             console.log(1)
         }, timeout);
     }
 
-    startDraw (c2d, timeout, v){
+    startDraw (ctx, timeout, v){
         this.timeoutFlag = 0
-        this.draw(c2d, timeout, v)
+        this.draw(ctx, timeout, v)
     }
     stopDraw(){
         this.timeoutFlag = 1
@@ -34,8 +34,8 @@ class app {
             
             let $v = $(e.target)
             let $c = $v.next('canvas')
-            let c2d = $c[0].getContext('2d')
-            this.startDraw(c2d, 1/30, e.target)
+            let ctx = $c[0].getContext('2d')
+            this.startDraw(ctx, 1/30, e.target)
             $v.hide()
             $c.show()
 

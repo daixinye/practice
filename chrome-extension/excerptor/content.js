@@ -4,6 +4,10 @@ function sendMessage(message, callback) {
 	chrome.extension.sendMessage(message, callback);
 }
 
+sendMessage('test',function(res){
+	console.log(res);
+})
+
 function Menu() {
 	this.lastSelected = "";
 	var body = document.querySelector('body');
