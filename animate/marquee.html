@@ -44,6 +44,10 @@
             height: 0em;
         }
     }
+
+    .test {
+        border: 1px solid red;
+    }
 </style>
 <body>
 </body>
@@ -59,55 +63,61 @@
         $('body').append(marquee.render())
     }
 
-    class Marquee {
-        constructor(data = {
-            contents: [1,2,3,4,5],
-            initContent: '初始文案',
-            randomFlag: true
-        }){
-            this.contents = data.contents
-            this.initContent = data.initContent
-            this.randomFlag = data.randomFlag
+class Marquee {
+    constructor(data = {
+        // 第一次显示的文案
+        initContent: '初始文案',
+        // 之后随机的文案
+        contents: [1, 2, 3, 4, 5],
+        // 随机标识
+        randomFlag: true,
+        class:'test'
+    }){
 
-            this.index = -1
-            this.randomSeq = this.random(data.contents.length)
-            
-            this.bindEvents()
-        }
+        this.contents = data.contents
+        this.initContent = data.initContent
+        this.randomFlag = data.randomFlag
+        this.class = data.class
 
-        render(){
-            return `<div class="marquee-css-wrapper"><div class="marquee-css-content">${this.initContent}</div></div>`
-        }
-
-        handler(){
-            this.index+1 === this.contents.length ? this.index = 0: this.index++;
-
-            let i = this.randomFlag ? this.randomSeq[this.index] : this.index
-            $('.marquee-css-content').text(this.contents[i])
-        }
-
-        bindEvents(){
-            $('body').on('animationiteration','.marquee-css-content', this.handler.bind(this))
-        }
-
-        // 产生随机序列
-        random(length){
-            // 产生指定长度的数组
-            let arr = []
-            while(arr.length < length){
-                arr[arr.length] = arr.length
-            }
-            
-            // 随机选择
-            let seq = []
-            for(let i = 0; i < length; i++){
-                let index = parseInt(arr.length * Math.random())
-                seq.push(arr[index])
-                arr.splice(index,1)
-            }
-            return seq
-        }
+        this.index = -1
+        this.randomSeq = this.random(data.contents.length)
+        
+        this.bindEvents()
     }
+
+    render(){
+        return `<div class="marquee-css-wrapper ${ this.class }"><div class="marquee-css-content">${this.initContent}</div></div>`
+    }
+
+    handler(){
+        this.index + 1 === this.contents.length ? this.index = 0 : this.index++;
+
+        let i = this.randomFlag ? this.randomSeq[this.index] : this.index
+        $('.marquee-css-content').text(this.contents[i])
+    }
+
+    bindEvents(){
+        $('body').on('animationiteration','.marquee-css-content', this.handler.bind(this))
+    }
+
+    // 产生随机序列
+    random(length){
+        // 产生指定长度的数组
+        let arr = []
+        while(arr.length < length){
+            arr[arr.length] = arr.length
+        }
+        
+        // 随机选择
+        let seq = []
+        for(let i = 0; i < length; i++){
+            let index = parseInt(arr.length * Math.random(), 10)
+            seq.push(arr[index])
+            arr.splice(index, 1)
+        }
+        return seq
+    }
+}
 
 
 
