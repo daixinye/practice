@@ -3,11 +3,12 @@ var net = require('net');
 var url = require('url');
 
 function request(cReq, cRes) {
+    // http
     var u = url.parse(cReq.url);
 
-    if(hook(cReq, cRes)){
-        return
-    }
+    // if(hook(cReq, cRes)){
+    //     return
+    // }
 
     var options = {
         hostname : u.hostname, 
@@ -19,6 +20,11 @@ function request(cReq, cRes) {
 
     var pReq = http.request(options, function(pRes) {
         cRes.writeHead(pRes.statusCode, pRes.headers);
+
+        pRes.setEncoding('utf-8')
+        pRes.on('data',(chunk) => {
+            console.log(chunk)
+        })
         pRes.pipe(cRes);
     }).on('error', function(e) {
         cRes.end();
@@ -28,6 +34,7 @@ function request(cReq, cRes) {
 }
 
 function connect(cReq, cSock) {
+    // https
     var u = url.parse('http://' + cReq.url);
 
     var pSock = net.connect(u.port, u.hostname, function() {
