@@ -21,9 +21,13 @@ function request(cReq, cRes) {
     var pReq = http.request(options, function(pRes) {
         cRes.writeHead(pRes.statusCode, pRes.headers);
 
-        pRes.setEncoding('utf-8')
+        // pRes.setEncoding('utf8')
         pRes.on('data',(chunk) => {
+            console.log(pRes.statusCode, pRes.headers)
             console.log(chunk)
+        })
+        pRes.on('end',() => {
+            console.log('no more data')
         })
         pRes.pipe(cRes);
     }).on('error', function(e) {
