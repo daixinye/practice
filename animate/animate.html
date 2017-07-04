@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animate</title>
+    <style>
+		div.animate {
+			display: inline-block;
+			animation: bounce 3s 0s forwards;
+
+			margin-left: -1000px;
+			padding-left: 1000px;
+		}
+		@keyframes bounce{
+			0% {
+				transform: translate(0px,0px);
+			}
+			50% {
+				transform: translate(-1000px,0px);
+				/*background: rgba(255, 255, 255, 0.1);*/
+				/*border-radius: 1px;*/
+				/*margin: -1px;*/
+			}
+			100% {
+				transform: translate(0px,0px);
+			}
+		}
+		
+	</style>
+</head>
+<body>
+    <section>
+		top
+	</section>
+	<section>
+		<span>left</span>
+		<div class="animate">animate</div>
+		<span>right</span>
+	</section>
+	<section>
+		bottom
+	</section>
+</body>
+</html>
