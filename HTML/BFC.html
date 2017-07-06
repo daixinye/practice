@@ -6,29 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style lang="">
-        .float-left{
-            float:left;
-            background-color: red;
+        .f-l {
+            float: left;
         }
-        .container{
-            padding: 0;
-            margin: 0;
-            border: 1px solid yellow;   
+        .f-r {
+            float: right;
         }
-        p{
-            overflow: hidden;
-            margin-top: 40px;
+        .b-r {
+            border: 1px solid red;
+        }
+        .b-b {
+            border: 1px solid blue;
+        }
+        .b-g {
+            border: 1px solid green;
+        }
+        section {
+            width: 400px;
         }
     </style>
 </head>
 <body>
-    <section class="container">
-        <div class="float-left">
-            左边浮动
+    <h1 id="id">BFC，block formatting context，块级格式化上下文</h1>
+    <section>
+        <h2>让p元素中的文字不环绕左边浮动的兄弟元素<button onclick="clickDemo_1()">切换</button></h2>
+        <div class="f-l" style="display: inline-block;">
+            我是左浮动元素
         </div>
-        <p>
-            这里是文字；这里是文字；这里是文字；这里是文字；这里是文字；这里是文字；这里是文字；这里是文字；这里是文字；
-        </p>
+        <div style="overflow: hidden;" id="demo-1">
+            我是文字；我是文字；我是文字；我是文字；我是文字；我是文字；我是文字；我是文字；我是文字；我是文字；
+        </div>
+    </section>
+
+    <section>
+        <h2>在有浮动子元素的情况下，让父元素的高度不坍缩<button onclick="clickDemo_2()">切换</button></h2>
+        <div id="demo-2" style="overflow:hidden;" class="b-r">
+            <div class="f-l">我是大儿子</div>
+            <div class="f-l">我是二儿子</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>让上下排列的两个元素外边距不重合<button onclick="clickDemo_3()">切换</button></h2>
+        <div class="b-b" style="margin-bottom: 200px;">
+            我是上面的元素，我有 200px 的下外边距
+        </div>
+        <div id="demo-3" style="overflow:hidden;">
+            <div class="b-g" style="margin-top: 100px;">
+                我是下面的元素，我有 100px 的上外边距
+            </div>
+        </div>
     </section>
 </body>
+<script>
+    function clickDemo_1(){
+        var el = document.getElementById('demo-1')
+        el.style.overflow = el.style.overflow == 'hidden' ? '':'hidden'
+    }
+    function clickDemo_2(){
+        var el = document.getElementById('demo-2')
+        el.style.overflow = el.style.overflow == 'hidden' ? '':'hidden'
+    }
+    function clickDemo_3(){
+        var el = document.getElementById('demo-3')
+        el.style.overflow = el.style.overflow == 'hidden' ? '':'hidden'
+    }
+</script>
 </html>
