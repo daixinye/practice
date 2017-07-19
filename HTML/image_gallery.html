@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Gallery</title>
+</head>
+<body>
+    <dir>
+        <a href="http://img0.imgtn.bdimg.com/it/u=687258841,3856218039&fm=26&gp=0.jpg" title="来接图啊" onclick="showPic(this);return false;">来接图啊</a>
+        <br />
+        <a href="http://img3.duitang.com/uploads/item/201607/26/20160726073053_QAHTu.thumb.700_0.jpeg" title="活到现在" onclick="showPic(this);return false;">活到现在</a>
+        <br />
+        <a href="http://img0.imgtn.bdimg.com/it/u=189399235,4066350874&fm=214&gp=0.jpg" title="智商" onclick="showPic(this);return false;">智商</a>
+    </dir>
+    <div>
+        <img id="img" src="" alt="" width="400" height="300">
+        <p id="des">这里是描述</p>
+    </div>
+
+<script>
+    function countBodyChildren(){
+        var body = document.getElementsByTagName('body')[0].childNodes
+        body.forEach(function(node){
+            console.log(node, node.nodeType)
+        })
+    }
+
+    function showPic(whichpic){
+        var title = whichpic.getAttribute('title'),
+            url = whichpic.getAttribute('href')
+        
+
+        var $img = document.getElementById('img'),
+            $des = document.getElementById('des')
+
+        $img.setAttribute('src', url)
+        $des.firstChild.nodeValue = title
+    }
+
+    window.onload = function(){
+        countBodyChildren()
+    }
+</script>
+</body>
+</html>
