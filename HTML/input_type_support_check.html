@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="sometype" id="input"/>
+    <a href="/" id="a"></a>
+
+    <div id="log">
+    </div>
+</body>
+<script>
+    function inputSupportCheck(type){
+        var input = document.createElement('input')
+        input.setAttribute('type', type)
+        _log(input.type)
+    }
+    window.onload = function(){
+        inputSupportCheck('range')
+        inputSupportCheck('test')
+
+        var input = document.getElementById('input')
+        // DOM Core 和 HTML-DOM 展示的 type 并不相同
+        _log(input.type, input.getAttribute('type'))
+
+        var a = document.getElementById('a')
+        _log(a.href, a.getAttribute('href'))
+    }
+    function _log(){
+        var p = document.createElement("p")
+        var text = ""
+        for(var i=0;i<arguments.length;i++){
+            text+=(arguments[i]+" ")
+        }
+        p.appendChild(document.createTextNode(text))
+
+        var log = document.getElementById('log')
+        log.appendChild(p)
+    }
+</script>
+</html>
