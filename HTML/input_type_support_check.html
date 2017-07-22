@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="sometype" id="input"/>
+    <input type="sometype" id="input" required="false"/>
     <a href="/" id="a"></a>
 
     <div id="log">
@@ -26,6 +26,8 @@
         var input = document.getElementById('input')
         // DOM Core 和 HTML-DOM 展示的 type 并不相同
         _log(input.type, input.getAttribute('type'))
+        // 即使 required 设置了字符串false ， 其计算值 required 还是true
+        _log(input.required, input.getAttribute('required'))
 
         var a = document.getElementById('a')
         _log(a.href, a.getAttribute('href'))
