@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style lang="">
-        div {
-            border: 1px solid black;
-        }
     </style>
 </head>
+
 <body>
     <h1>基本视觉格式化</h1>
     <h2>非替换元素</h2>
@@ -21,8 +20,8 @@
     </div>
     <div style="width:100%;">
         <p style="width:10000px;margin-left:100px;margin-right:auto;">
-            如果子元素的总宽度大于包含块的宽度，那么子元素的 margin-right 会被覆盖成负的，以不超过其包含块。但是此时会出现横向的滚动条。并且如果字数比较多的话，会超出包含块。充字数~充字数~充字数~充字数~充字数~充字数~
-            这时需要将包含块的 overflow 属性设置成 hidden。
+            如果子元素的总宽度大于包含块的宽度，那么子元素的 margin-right 会被覆盖成负的，以不超过其包含块。但是此时会出现横向的滚动条。并且如果字数比较多的话，会超出包含块。充字数~充字数~充字数~充字数~充字数~充字数~ 这时需要将包含块的
+            overflow 属性设置成 hidden。
         </p>
     </div>
     <div>
@@ -30,7 +29,9 @@
             <p style="border:1px solid red;width: 50%;padding-left: 400px;margin:0 150px;">
                 不论何时，当子元素的框超过包含块时，负外边距都会赶来救场，使包含块内部的元素不影响外部兄弟元素的布局。
             </p>
-         </div><!-- 这里不换行是为了防止一个空格的间隙 --><div style="width:500px;display:inline-block;"> 
+        </div>
+        <!-- 这里不换行是为了防止一个空格的间隙 -->
+        <div style="width:500px;display:inline-block;">
             外部兄弟元素的内容只会被重叠，但是不会发生布局上的偏移。
         </div>
     </div>
@@ -43,16 +44,36 @@
         </div>
         <div style="width: 100px; display:inline-block;">
             <p>
-                注意，看起来好像是下面的图片把文字顶到了上面去，实际上是因为 p 的 vertical-align 属性默认为 text-bottom，导致这段文字显示在了图片上方。
-                下面的图片由于负外边距的存在，并不会影响本段文字的布局。
+                注意，看起来好像是下面的图片把文字顶到了上面去，实际上是因为 p 的 vertical-align 属性默认为 text-bottom，导致这段文字显示在了图片上方。 下面的图片由于负外边距的存在，并不会影响本段文字的布局。
             </p>
         </div>
         <div style="width: 100px; display:inline-block;vertical-align: bottom;background-color: white;">
             <p>
-                当 vertical-align 设置成 bottom 之后，文字就自然而然从视觉上覆盖了图片。
-                （为了文字清晰加了白色的背景）
+                当 vertical-align 设置成 bottom 之后，文字就自然而然从视觉上覆盖了图片。 （为了文字清晰加了白色的背景）
             </p>
         </div>
     </div>
+
+    <h2>垂直格式化</h2>
+    <div style="height:250px;">
+        <p style="height:50%;margin: auto;">即使把元素的 margin 设置成 auto ，也不会让这个段落块垂直居中。</p>
+    </div>
+    <div style="">
+        <p style="height:50%;">如果父元素没有显式地声明 height，那么子元素的百分比 height 会被重置为auto。</p>
+    </div>
+    <div>
+        <div style="height: auto; background: silver;">
+            <p style="margin-top:2em;margin-bottom: 2rem;">子元素的外边距与父元素的外边距重合。</p>
+        </div>
+        <div style="height: auto; border-top: 1px solid; border-bottom: 1px solid; background: silver;">
+            <p style="margin-top: 2em; margin-bottom: 2em;">通过增加 border 来防止这种现象。</p>
+        </div>
+        <div style="height: auto; padding-top: 1px; padding-bottom: 1px; background: silver;">
+            <p style="margin-top: 2em; margin-bottom: 2em;">给子元素增加内边距也可以防止这种现象。</p>
+        </div>
+    </div>
+    <script>
+    </script>
 </body>
+
 </html>
